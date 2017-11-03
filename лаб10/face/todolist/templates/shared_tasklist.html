@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+{{form.non_field_errors}}
+ Your Shared tasklists:
+    <ul>
+        {% for tasklist in tasklists %}
+        <div>
+            <li><a href="{{tasklist.id}}/tasks">{{tasklist.name}}</a></li>
+
+        </div>
+			{% endfor %}
+    </ul>
+<p> If you want to leave our AMAZING site, please, <b> <a href="/logout/"> log out </a> </b> . </p>
+{% endblock %}

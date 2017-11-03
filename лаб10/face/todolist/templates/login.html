@@ -1,0 +1,14 @@
+<html><body>
+
+    <form action="http://127.0.0.1:8080/login/" method='post'>
+        {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit", value = "Войти"/>
+    </form>
+
+
+<form action="http://127.0.0.1:8080/registration/">
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+</body></html>

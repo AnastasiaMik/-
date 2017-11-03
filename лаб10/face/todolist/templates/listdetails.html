@@ -1,0 +1,44 @@
+<html>
+<body>
+
+<form align="right" action="/logout/">
+    <button type="submit">Выйти</button>
+</form>
+
+<form action="http://127.0.0.1:8080/getlists/{{list_id}}/" method="post"> {% csrf_token %}
+
+    <h1>{{ header }}</h1>
+
+    <u1>
+        {% if user == details.owner %}
+        <h4>Имя списка: <input type="text" value=" {{details.name}}" name="name"></h4>
+        <p>Владелец: {{details.owner}}</p>
+        <p>Имя друга: <input type="text" value=" {{details.friend}}" name="friend"></p>
+        <input type="submit" value="Обновить список">
+
+        <p></p>
+        <a href="http://127.0.0.1:8080/getlists/{{list_id}}/delete/"><input type="button" value="Удалить список"></a>
+        <p></p>
+
+        <p></p>
+        <a href="http://127.0.0.1:8080/getlists/{{list_id}}/tasks/"><input type="button" value="Посмотреть задчаи"></a>
+        <p></p>
+
+        {% else %}
+        <h4>Имя списка:  {{details.name}}</h4>
+        <p>Владелец: {{details.owner}}</p>
+        <p></p>
+        <a href="http://127.0.0.1:8080/getlists/{{list_id}}/sharetasks/"><input type="button" value="Посмотреть задчаи"></a>
+        <p></p>
+
+
+        {% endif %}
+    </u1>
+    <!--<p> <a href="share"> Share with friends </a> </p>-->
+</form>
+
+<p></p>
+
+
+</body>
+</html>

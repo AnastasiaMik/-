@@ -1,0 +1,61 @@
+<html>
+<body>
+
+<form align="right" action="/logout/">
+    <button type="submit">Выйти</button>
+</form>
+
+<form action="http://127.0.0.1:8080/getlists/{{list_id}}/tasks/{{task_id}}/" method="post"> {% csrf_token %}
+
+    <h1>{{ header }}</h1>
+    <u1>
+        <h4>Название задачи: {{ name }}</h4>
+        <p>Дата создания: {{ details.date_created }}</p>
+        <p>Дата изменения: {{ details.date_modified }}</p>
+        <p>Описание: {{ description }}</p>
+        <p>Тэги: {{ tags }}</p>
+        <p>Приоритет задачи:</p>
+        <select name="priority">
+            {% if priority == "h" %}
+            <option value="h" selected>High</option>
+            {% else %}
+            <option value="h">High</option>
+            {% endif %}
+            {% if priority == "m" %}
+            <option value="m" selected>Medium</option>
+            {% else %}
+            <option value="m">Medium</option>
+            {% endif %}
+            {% if priority == "l" %}
+            <option value="l" selected>Low</option>
+            {% else %}
+            <option value="l">Low</option>
+            {% endif %}
+            {% if priority == "n" %}
+            <option value="n" selected>None</option>
+            {% else %}
+            <option value="n">None</option>
+            {% endif %}
+        </select>
+
+
+        {% if completed %}
+        <p> Статус задачи:<input type="checkbox" checked name="completed"></p>
+        {% else %}
+        <p>Статус задачи: <input type="checkbox" name="completed"></p>
+        {% endif %}
+
+    </u1>
+</form>
+<p></p>
+<a href="http://127.0.0.1:8080/getlists/{{list_id}}/sharetasks/"><input type="button"
+                                                                        value="Назад к задачам списка"></a>
+<p></p>
+<p></p>
+<a href="http://127.0.0.1:8080/getlists/"><input type="button" value="Назад к спискам задач"></a>
+<p></p>
+
+
+</u1>
+</body>
+</html>

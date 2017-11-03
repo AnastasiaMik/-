@@ -1,0 +1,22 @@
+<html>
+<body>
+
+<form align="right" action="/logout/">
+    <button type="submit">Выйти</button>
+</form>
+
+<form method='get'>{% csrf_token %}
+</form>
+<h2>{{ header }}</h2>
+{% if tasks %}
+<ul>
+    {% for task in tasks %}
+    <li><a href="{{ task.id }}/share/">{{ task.name }}</a></li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>Вы еще не создали ни одной задачи в этом списке.</p>
+{% endif %}
+</body>
+</html>

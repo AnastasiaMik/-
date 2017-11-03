@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<html>
+{% block content %}
+{{form.non_field_errors}}
+<a href="/todolists/"> Home </a>
+    <p><FONT SIZE=5><FONT COLOR="#4682B4"> Shared tasks in this shared Tasklist:</FONT></FONT></p>
+    <ul>
+        {% for task in tasks %}
+        <div>
+            <li><FONT SIZE=3>Name of task: <a href="{{task.id}}">{{task.name}}</a></FONT></li>
+        </div>
+        {% endfor %}
+    </ul>
+<p> If you want to leave our AMAZING site, please, <b> <a href="/logout/"> log out </a> </b> . </p>
+{% endblock %}
+</html>

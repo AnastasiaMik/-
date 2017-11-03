@@ -1,0 +1,14 @@
+<html><body>
+<form align="right" action="/logout/">
+    <button type="submit">Выйти</button>
+</form>
+<form method='get'>{% csrf_token %}
+</form>
+<h1>{{ header }}</h1>
+<ul>
+{% for list in lists %}
+    <li><a href="{{ list.id }}/">{{ list.username }}</a></li>
+{% endfor %}
+</ul>
+
+</body></html>
